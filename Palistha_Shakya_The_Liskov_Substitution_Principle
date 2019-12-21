@@ -1,0 +1,26 @@
+LISKOV SUBSTITUTION PRINCIPLE
+The principle defines that objects of a superclass shall be replaceable with objects of its subclasses without breaking the application. That requires the objects of your subclasses to behave in the same way as the objects of your superclass. You can achieve that by following a few rules, which are pretty similar to the design by contract concept defined by Bertrand Meyer. If you decide to apply this principle to your code, the behavior of your classes becomes more important than its structure. Unfortunately, there is no easy way to enforce this principle. The compiler only checks the structural rules defined by the Java language, but it can’t enforce a specific behavior.
+For example:
+public class Bird(
+    public void canFly(){
+    }
+    public void cannotFly(){
+    }
+    public void eat(){
+    }
+)
+//following Liskov Substitution principle
+public class Bird{
+    public void eat(){
+    }
+}
+//for Flying
+public class Flying extends Birds{
+        public void canFly(){
+        }
+}
+//for NotFlying
+public class NotFlying extends Birds{
+    public void NotFlying(){
+    }
+}
